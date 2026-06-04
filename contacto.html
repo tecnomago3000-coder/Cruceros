@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
@@ -13,18 +13,28 @@ body { background: #f5f9fc; color: #222; overflow-x: hidden; }
 a { text-decoration: none; color: inherit; display: block; }
 
 /* HEADER */
-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: #003366; backdrop-filter: blur(10px); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; }
+header { 
+  position: fixed; top: 0; width: 100%; z-index: 1000; 
+  background: rgba(0, 51, 102, 0.85); /* Fondo con transparencia para que funcione el blur */
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+  padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; 
+}
 .logo { color: white; font-size: 30px; font-weight: 700; letter-spacing: 1px; }
 nav { display: flex; gap: 25px; align-items: center; }
 nav a { color: white; font-size: 15px; transition: 0.3s; }
 nav a:hover { color: #4fc3f7; }
 .btn-primary { background: linear-gradient(135deg,#00b4ff,#0066ff); color: white; padding: 12px 22px; border-radius: 30px; font-weight: 600; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,102,255,0.3); }
-.menu-toggle { display: none; color: white; font-size: 28px; cursor: pointer; }
+
+/* Botón de menú accesible */
+.menu-toggle { 
+  display: none; color: white; font-size: 28px; cursor: pointer; 
+  background: none; border: none; 
+}
 
 /* MAIN CONTENT */
 .main-container { margin-top: 70px; padding: 60px 6%; min-height: calc(100vh - 70px - 80px); display: flex; align-items: center; justify-content: center; flex-direction: column; }
-.main-container p { font-size: 24px; color: #003366; font-weight: 500; text-align: center; }
 
 /* CONTACT WINDOW */
 .contact-window {
@@ -77,29 +87,37 @@ nav a:hover { color: #4fc3f7; }
 footer { background: #001a33; color: white; padding: 30px 6% 20px; }
 .footer-bottom { text-align: center; color: #999; font-size: 14px; }
 
+/* RESPONSIVE */
 @media(max-width:1024px) {
-  nav { position: absolute; top: 80px; right: 0; background: rgba(0,51,102,0.95); flex-direction: column; width: 100%; padding: 30px; display: none; }
+  nav { 
+    position: absolute; top: 80px; right: 0; 
+    background: rgba(0,51,102,0.95); 
+    flex-direction: column; width: 100%; padding: 30px; 
+    display: none; 
+  }
   nav.active { display: flex; }
   .menu-toggle { display: block; }
 }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">Oceanova Cruises</div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Cambiado de div a button para mejor accesibilidad -->
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
   <nav id="navMenu">
     <a href="https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html">Inicio</a>
-    <a href="https://tudominio.com/lujos">Dudas</a>
+    <a href="https://tudominio.com/dudas">Dudas</a>
     <a href="https://cibermoney2025.blogspot.com/p/barcos-7p.html">Barcos</a>
     <a href="https://tudominio.com/empleo">Solicitar Empleo</a>
-    <a href="https://tecnomago3000-coder.github.io/Cruceros/contacto.html">Contacto</a>
+    <a href="https://tudominio.com/contacto">Contacto</a>
     <a href="https://tudominio.com/reservar" class="btn-primary">Reservas</a>
   </nav>
 </header>
 
 <div class="main-container" id="inicio">
-  <p></p>
+  <!-- Se eliminó la etiqueta <p></p> vacía que había aquí -->
 
   <div class="contact-window" id="contactWindow">
     <img src="https://tecnomago3000-coder.github.io/Cruceros/contacto.png" alt="Contacto Oceanova Cruises" />
@@ -113,11 +131,13 @@ footer { background: #001a33; color: white; padding: 30px 6% 20px; }
     <button class="contact-btn btn-telegram" onclick="window.open('https://t.me/axel2924','_blank')">
       Contactar vía Telegram
     </button>
+
     <button class="contact-btn btn-email" onclick="openEmailClient()">
       Contactar vía Correo
     </button>
-   <button class="contact-btn btn-back" onclick="window.open('https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html
-','_blank')">
+
+    <!-- Se eliminó el salto de línea que había dentro de la URL -->
+    <button class="contact-btn btn-back" onclick="window.open('https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html','_blank')">
       Atrás
     </button>
   </div>
@@ -130,34 +150,27 @@ footer { background: #001a33; color: white; padding: 30px 6% 20px; }
 </footer>
 
 <script>
-function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+function toggleMenu() { 
+  document.getElementById('navMenu').classList.toggle('active'); 
+}
 
+// Cerrar menú automáticamente al hacer clic en un enlace (para móviles)
+document.querySelectorAll('#navMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('active');
+  });
+});
+
+// Función simplificada y estándar para abrir el cliente de correo
 function openEmailClient() {
   const destino = 'oceanovacruises@gmail.com';
   const asunto  = encodeURIComponent('Contacto desde la web de Oceanova Cruises');
   const cuerpo  = encodeURIComponent('Hola, me gustaría recibir información sobre sus cruceros.');
   const mailto  = 'mailto:' + destino + '?subject=' + asunto + '&body=' + cuerpo;
-
-  // Método 1: redirección directa (el más común)
+  
   window.location.href = mailto;
-
-  // Método 2: enlace dinámico con clic programático (por si el navegador bloquea la redirección)
-  setTimeout(function() {
-    try {
-      const a = document.createElement('a');
-      a.href = mailto;
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    } catch(e) {}
-  }, 400);
-
-  // Método 3: window.open como respaldo final
-  setTimeout(function() {
-    try { window.open(mailto, '_self'); } catch(e) {}
-  }, 900);
 }
 </script>
+
 </body>
 </html>
