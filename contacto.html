@@ -1,0 +1,74 @@
+   <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oceanova Cruises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: #f5f9fc; color: #222; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; display: block; }
+/* HEADER */
+header { position: fixed; top: 0; width: 100%; z-index: 1000; background: #003366; backdrop-filter: blur(10px); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; }
+.logo { color: white; font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+nav { display: flex; gap: 25px; align-items: center; }
+nav a { color: white; font-size: 15px; transition: 0.3s; }
+nav a:hover { color: #4fc3f7; }
+.btn-primary { background: linear-gradient(135deg,#00b4ff,#0066ff); color: white; padding: 12px 22px; border-radius: 30px; font-weight: 600; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,102,255,0.3); }
+.menu-toggle { display: none; color: white; font-size: 28px; cursor: pointer; }
+/* MAIN CONTENT */
+.main-container { margin-top: 70px; padding: 60px 6%; min-height: calc(100vh - 70px - 200px); display: flex; align-items: center; justify-content: center; }
+.main-container p { font-size: 24px; color: #003366; font-weight: 500; text-align: center; }
+/* FOOTER */
+footer { background: #001a33; color: white; padding: 60px 6% 30px; }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
+.footer-column { flex: 1; min-width: 200px; }
+.footer-column h3 { color: #4fc3f7; margin-bottom: 20px; font-size: 16px; border-bottom: 2px solid #0066ff; padding-bottom: 10px; }
+.footer-column ul { list-style: none; }
+.footer-column ul li { margin-bottom: 10px; }
+.footer-column ul li a { color: #ccc; font-size: 14px; transition: 0.3s; cursor: pointer; display: inline-block; }
+.footer-column ul li a:hover { color: #0066ff; padding-left: 5px; }
+.footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #333; color: #999; }
+@media(max-width:1024px) {
+  nav { position: absolute; top: 80px; right: 0; background: rgba(0,51,102,0.95); flex-direction: column; width: 100%; padding: 30px; display: none; }
+  nav.active { display: flex; }
+  .menu-toggle { display: block; }
+  .footer-content { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Oceanova Cruises</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="navMenu">
+     <a href="https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html">Inicio</a>
+    <a href="https://tudominio.com/lujos">Dudas</a>
+    <a href="https://cibermoney2025.blogspot.com/p/barcos-7p.html">Barcos</a>
+    <a href="https://tudominio.com/empleo">Solicitar Empleo</a>
+    <a href="https://tudominio.com/destinos">Contacto</a>
+    <a href="https://tudominio.com/reservar" class="btn-primary">Reservas</a>
+  </nav>
+</header>
+
+<div class="main-container" id="inicio">
+  <p>nuevo contenido aqui</p>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-column"><h3>Sobre Cruceros</h3><ul><li><a href="#">Clima</a></li><li><a href="#">Comida a Bordo</a></li><li><a href="#">Encontrar un Barco</a></li></ul></div>
+    <div class="footer-column"><h3>Información</h3><ul><li><a href="#">Política de Privacidad</a></li><li><a href="#">Términos y Condiciones</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Oceanova Cruises - reservas@oceanova.com | 1-800-CRUCEROS</p></div>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+</script>
+</body>
+</html>
