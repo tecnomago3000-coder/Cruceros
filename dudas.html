@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oceanova Cruises - Dudas Frecuentes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: #f5f9fc; color: #222; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; display: block; }
+
+/* HEADER */
+header { 
+  position: fixed; top: 0; width: 100%; z-index: 1000; 
+  background: rgba(0, 51, 102, 0.85);
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+  padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; 
+}
+.logo { color: white; font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+nav { display: flex; gap: 25px; align-items: center; }
+nav a { color: white; font-size: 15px; transition: 0.3s; }
+nav a:hover { color: #4fc3f7; }
+.btn-primary { background: linear-gradient(135deg,#00b4ff,#0066ff); color: white; padding: 12px 22px; border-radius: 30px; font-weight: 600; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,102,255,0.3); }
+
+.menu-toggle { 
+  display: none; color: white; font-size: 28px; cursor: pointer; 
+  background: none; border: none; 
+}
+
+/* MAIN CONTENT */
+.main-container { margin-top: 70px; padding: 60px 6%; min-height: calc(100vh - 70px - 80px); display: flex; align-items: center; justify-content: center; flex-direction: column; }
+
+/* CONTACT WINDOW */
+.contact-window {
+  background: linear-gradient(135deg, #0066cc, #004a99);
+  color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,51,102,0.3);
+  margin-top: 20px;
+}
+.contact-window img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.topic-btn {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: 0.3s;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #8e44ad, #6c3483);
+}
+.topic-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+.btn-back { 
+  background: linear-gradient(135deg, #2c3e50, #000000); 
+  margin-top: 10px; 
+}
+
+/* Content sections */
+.content-section {
+  display: none;
+  background: linear-gradient(135deg, #0066cc, #004a99);
+  color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 800px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0,51,102,0.3);
+  margin-top: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.content-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #a8d8ff;
+  border-bottom: 2px solid #a8d8ff;
+  padding-bottom: 10px;
+}
+.content-section h3 {
+  font-size: 22px;
+  margin: 20px 0 10px;
+  color: #ffffff;
+}
+.content-section p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+.content-section ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.content-section li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.content-section strong {
+  color: #a8d8ff;
+}
+
+/* FOOTER */
+footer { background: #001a33; color: white; padding: 30px 6% 20px; }
+.footer-bottom { text-align: center; color: #999; font-size: 14px; }
+
+/* RESPONSIVE */
+@media(max-width:1024px) {
+  nav { 
+    position: absolute; top: 80px; right: 0; 
+    background: rgba(0,51,102,0.95); 
+    flex-direction: column; width: 100%; padding: 30px; 
+    display: none; 
+  }
+  nav.active { display: flex; }
+  .menu-toggle { display: block; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Oceanova Cruises</div>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+  <nav id="navMenu">
+    <a href="https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html">Inicio</a>
+    <a href="https://tudominio.com/dudas">Dudas</a>
+    <a href="https://cibermoney2025.blogspot.com/p/barcos-7p.html">Barcos</a>
+    <a href="https://tudominio.com/empleo">Solicitar Empleo</a>
+    <a href="https://tecnomago3000-coder.github.io/Cruceros/contacto.html">Contacto</a>
+    <a href="https://tudominio.com/reservar" class="btn-primary">Reservas</a>
+  </nav>
+</header>
+
+<div class="main-container" id="inicio">
+
+  <!-- Main menu with image and topic buttons -->
+  <div class="contact-window" id="contactWindow">
+    <img src="https://tecnomago3000-coder.github.io/Cruceros/dudas.png" alt="Dudas Oceanova Cruises" />
+
+    <button class="topic-btn" onclick="showTopic(1)">1. Reservas, Pagos y Tarifas</button>
+    <button class="topic-btn" onclick="showTopic(2)">2. Documentación y Requisitos Legales</button>
+    <button class="topic-btn" onclick="showTopic(3)">3. Salud, Bienestar y Condiciones Médicas</button>
+    <button class="topic-btn" onclick="showTopic(4)">4. Accesibilidad y Necesidades Especiales</button>
+    <button class="topic-btn" onclick="showTopic(5)">5. Embarque y Desembarque</button>
+    <button class="topic-btn" onclick="showTopic(6)">6. Vida a Bordo: Instalaciones y Servicios</button>
+    <button class="topic-btn" onclick="showTopic(7)">7. Gastronomía y Bebidas</button>
+    <button class="topic-btn" onclick="showTopic(8)">8. Entretenimiento, Excursiones y Actividades</button>
+    <button class="topic-btn" onclick="showTopic(9)">9. Normativas de Conducta y Seguridad</button>
+    <button class="topic-btn" onclick="showTopic(10)">10. Modificaciones, Cancelaciones y Seguros</button>
+
+    <!-- URL to be specified later -->
+    <button class="topic-btn btn-back" onclick="window.location.href='https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html'">
+      Atrás
+    </button>
+  </div>
+
+  <!-- Topic 1: Reservas, Pagos y Tarifas -->
+  <div class="content-section" id="topic1">
+    <h2>1. Reservas, Pagos y Tarifas</h2>
+    
+    <h3>¿Qué incluye y qué no incluye el precio de mi crucero con Oceanova?</h3>
+    <p>El precio de tu crucero incluye: alojamiento en el camarote de la categoría elegida, pensión completa en nuestros restaurantes principales y buffet, acceso a las instalaciones de ocio (piscinas, gimnasio, teatro) y las tasas portuarias.</p>
+    <p><strong>No incluyen:</strong> Bebidas alcohólicas o premium (salvo que contrates un paquete), excursiones en tierra, servicios de Spa y peluquería, lavandería, conexión a internet y gastos personales.</p>
+
+    <h3>¿Cuánto debo pagar para reservar y cuál es el plazo para liquidar el viaje?</h3>
+    <p>Para confirmar tu reserva, solicitamos un depósito inicial que varía según la duración del crucero (desde 50€ por persona para escapadas cortas, hasta 225€ para grandes travesías). El pago del saldo restante debe estar completo, como máximo, <strong>45 días antes de la fecha de embarque</strong>. Si realizas la reserva con menos de 45 días de antelación, el pago total se realizará en el momento de la compra.</p>
+    <p><strong>El Depósito Inicial (para apartar el camarote):</strong></p>
+    <ul>
+      <li>Cruceros cortos (1-5 noches): <strong>50€ por persona</strong></li>
+      <li>Cruceros de 6-8 noches: <strong>125€ por persona</strong></li>
+      <li>Cruceros de 9 noches o más: <strong>225€ por persona</strong></li>
+    </ul>
+
+    <h3>¿Cómo funciona el sistema de pagos a bordo?</h3>
+    <p>En Oceanova Cruises operamos con un sistema <strong>"sin efectivo" (cashless)</strong>. Al embarcar, se te entregará tu <strong>Oceanova Card</strong>, que sirve como llave de tu camarote, identificación para subir y bajar del barco y método de pago. Deberás registrar una tarjeta de crédito o dejar un depósito en efectivo en las primeras 48 horas a bordo. Todos tus gastos (bebidas, excursiones, spa) se cargarán a esta tarjeta y recibirás un estado de cuenta detallado la madrugada antes del desembarco.</p>
+
+    <h3>¿Qué tarjetas de crédito aceptan a bordo?</h3>
+    <p>Aceptamos las principales tarjetas internacionales: <strong>Visa, Mastercard y American Express</strong>.</p>
+    <p><strong>Importante:</strong> Por políticas de seguridad, <strong>no se aceptan</strong> tarjetas prepago, tarjetas monedero ni tarjetas de débito (tipo Visa Electron o similares) para garantizar la cuenta a bordo.</p>
+
+    <h3>¿Las propinas y el servicio están incluidos?</h3>
+    <p>¡Sí! En Oceanova Cruises creemos en la transparencia. <strong>Las propinas diarias por el servicio hotelero y de restauración ya están incluidas en el precio de tu billete</strong>, para que solo tengas que preocuparte por disfrutar. Sin embargo, ten en cuenta que se añadirá automáticamente un <strong>15% de cargo por servicio</strong> en tus consumiciones de bares, cafeterías, spas y restaurantes de especialidad.</p>
+
+    <h3>¿Puedo modificar el nombre de un pasajero o cambiar la fecha de mi reserva?</h3>
+    <p>Entendemos que los planes pueden cambiar.</p>
+    <ol>
+      <li><strong>Cambio de nombre:</strong> Permitimos corregir errores tipográficos o cambiar el nombre de un pasajero por otro (por fuerza mayor) hasta 15 días antes de la salida, sujeto a un gasto administrativo de 50€ por persona y a las posibles penalizaciones de las compañías aéreas si hay vuelos incluidos.</li>
+      <li><strong>Cambio de fecha:</strong> Puedes solicitar un cambio de fecha (por otra salida del mismo itinerario) con más de 30 días de antelación, sujeto a disponibilidad y a un gasto de gestión de 50€.</li>
+    </ol>
+    <p>Te recordamos que contratar nuestro <strong>Seguro de Cancelación</strong> en el momento de la reserva te protegerá ante imprevistos médicos o laborales.</p>
+  </div>
+
+  <!-- Topic 2: Documentación y Requisitos Legales -->
+  <div class="content-section" id="topic2">
+    <h2>2. Documentación y Requisitos Legales</h2>
+
+    <h3>¿De quién es la responsabilidad de llevar la documentación correcta?</h3>
+    <p>Como operamos con cruceros que zarpan desde los puertos más increíbles de todo el mundo, los requisitos varían según el destino. Aunque la responsabilidad final de portar la documentación en vigor recae sobre el pasajero, <strong>en Oceanova Cruises no te dejamos solo</strong>. Contamos con un departamento legal y de documentación que te asistirá de forma totalmente gratuita para que cumplas con todos los requisitos de inmigración y seguridad.</p>
+
+    <h3>¿Cuánta validez debe tener mi pasaporte?</h3>
+    <p>Como norma general internacional, tu pasaporte debe tener una <strong>validez mínima de 6 meses posteriores a la fecha de finalización del crucero</strong>. Si tu pasaporte caduca antes de ese plazo, las autoridades portuarias pueden denegarte el embarque. Te recomendamos renovarlo en cuanto reserves tu viaje.</p>
+
+    <h3>¿Qué documentación necesitan los menores de edad y cómo puedo tramitar los permisos notariales?</h3>
+    <p>Todos los menores deben viajar con su propio DNI o Pasaporte individual (ya no es válido que figuren en el pasaporte de los padres).</p>
+    <p>Si el menor viaja con un solo progenitor, con abuelos o con terceros, las autoridades de muchos países exigen un <strong>permiso de viaje notarial</strong> firmado por el progenitor que no viaja o por ambos.</p>
+    <p><strong>El Servicio Asistido de Oceanova:</strong> Sabemos que estos trámites pueden ser confusos. Por eso, una vez que hayas comprado tu pasaje, <strong>te prestamos el servicio de asesoramiento y coordinación notarial de forma 100% gratuita</strong>. Nuestro equipo legal preparará y gestionará los modelos de autorización requeridos por el país de destino.</p>
+    <p><em>Nota:</em> El pasajero únicamente deberá abonar el coste oficial de emisión del registro o de la notaría correspondiente, pero la gestión y el servicio legal de Oceanova son gratis.</p>
+
+    <h3>¿Necesito visados para los países que visito y me pueden ayudar a tramitarlos?</h3>
+    <p>Depende de tu nacionalidad y del itinerario (especialmente en escalas por EE.UU., Asia, África o Sudamérica).</p>
+    <p><strong>El Servicio Asistido de Oceanova:</strong> Para tu total comodidad, <strong>Oceanova Cruises te tramita el visado</strong> (incluyendo el ESTA para EE.UU. o visados turísticos consulares). Nuestro equipo de expertos rellenará, presentará y hará el seguimiento de tu solicitud ante las embajadas o autoridades competentes.</p>
+    <p><em>Nota:</em> Al igual que con los permisos notariales, <strong>la gestión y el servicio de tramitación son gratuitos</strong> para todos nuestros pasajeros. Únicamente deberás hacerte cargo de la tasa oficial de emisión del visado que exija el país de destino.</p>
+
+    <h3>¿Cómo accedo a estos servicios gratuitos de Visados y Notaría?</h3>
+    <p>Para garantizar la agilidad y seguridad de tus datos, estos servicios exclusivos están disponibles únicamente para quienes hayan adquirido su pasaje con nosotros.</p>
+    <p>Para solicitar la gestión de tu visado o la autorización notarial de menores, solo debes acceder a tu área de cliente en nuestra web o app, ir a la sección de tu reserva y hacer clic en el botón <strong>"Solicitar Servicios"</strong>. Nuestro equipo legal se pondrá en contacto contigo de inmediato para guiarte paso a paso.</p>
+
+    <h3>¿Me pueden pedir vacunas o certificados sanitarios para embarcar?</h3>
+    <p>Depende del destino. En nuestro portal, y a través del botón <strong>"Solicitar Servicios"</strong>, nuestro equipo te informará de forma gratuita si tu itinerario específico exige certificados sanitarios internacionales (como la Fiebre Amarilla) o cuestionarios de salud previos al embarque.</p>
+  </div>
+
+  <!-- Topic 3: Salud, Bienestar y Condiciones Médicas -->
+  <div class="content-section" id="topic3">
+    <h2>3. Salud, Bienestar y Condiciones Médicas</h2>
+
+    <h3>¿Cuál es la política para pasajeras embarazadas?</h3>
+    <p>La seguridad de la madre y el bebé es nuestra prioridad. Dado que nuestros barcos no cuentan con instalaciones de maternidad ni partos, <strong>no se permite el embarque a pasajeras que hayan cumplido o vayan a cumplir la semana 24 de gestación</strong> en cualquier momento del crucero.</p>
+    <p>Si te encuentras en un estado de gestación inferior a 24 semanas, es obligatorio presentar un certificado médico original que confirme tu aptitud para viajar y la fecha probable de parto. Te recomendamos utilizar el botón <strong>"Solicitar Servicios"</strong> en tu área de cliente para que nuestro equipo valide tu documentación antes de llegar al puerto.</p>
+
+    <h3>¿Puedo viajar con un bebé? ¿Cuál es la edad mínima?</h3>
+    <p>Sí, nos encanta recibir a las familias a bordo. Por seguridad médica, la edad mínima para embarcar es de <strong>6 meses cumplidos</strong> en la fecha de salida.</p>
+    <p><strong>Excepción:</strong> Para cruceros transatlánticos, vuelta al mundo o travesías de más de 15 días con varios días consecutivos en alta mar, la edad mínima requerida es de <strong>12 meses cumplidos</strong>.</p>
+
+    <h3>¿Cómo funciona el Centro Médico a bordo?</h3>
+    <p>Todos nuestros barcos cuentan con un Centro Médico equipado y atendido por médicos y enfermeros titulados, disponible las 24 horas para <strong>atención de emergencias y dolencias comunes</strong>.</p>
+    <p><strong>Importante:</strong> El centro médico no equivale a un hospital terrestre y no dispone de especialistas o equipos complejos. Por ello, es responsabilidad de cada pasajero llevar a bordo la medicación crónica o específica que necesite para toda la duración del viaje. Las consultas y tratamientos en el Centro Médico tienen un coste adicional que se cargará a tu cuenta a bordo (de ahí la importancia de viajar con un seguro médico).</p>
+
+    <h3>Tengo una condición médica crónica o necesito llevar un dispositivo (ej. CPAP). ¿Puedo embarcar?</h3>
+    <p>¡Por supuesto! En Oceanova Cruises queremos que viajes con total tranquilidad. Si padeces una condición médica que requiera atención especial, oxígeno, o necesitas viajar con dispositivos como CPAP o máquinas de diálisis, debes informarnos para garantizar que podemos asistirte adecuadamente.</p>
+    <p><strong>Nuestro Servicio Gratuito:</strong> No tienes que lidiar con formularios complejos. Simplemente accede a tu reserva y haz clic en el botón <strong>"Solicitar Servicios"</strong>. Selecciona la opción "Evaluación Médica Previa". Nuestro equipo médico de tierra revisará tu caso, te indicará si necesitas llevar suministros extra y te emitirá un "Certificado de Aptitud Oceanova" para que pases por el puerto sin ninguna retención ni problema.</p>
+
+    <h3>¿Qué opciones hay para pasajeros con alergias alimentarias o dietas especiales?</h3>
+    <p>Nuestros chefs están preparados para ofrecerte una experiencia gastronómica inolvidable, sin renunciar a tu salud. Disponemos de menús para celíacos (sin gluten), diabéticos, veganos, vegetarianos y adaptaciones para alergias severas (lactosa, frutos secos, etc.).</p>
+    <p><strong>Cómo solicitarlo:</strong> Es <strong>indispensable</strong> que indiques tu dieta especial en el momento de realizar la reserva (en el apartado de peticiones especiales). Una vez a bordo, te pedimos que reconfirmes tu dieta con el <em>Maître</em> del restaurante el primer día.</p>
+    <p><em>Nota de seguridad:</em> Aunque tomamos todas las precauciones en nuestra cocina, los pasajeros con alergias severas deben tener en cuenta que a bordo se manipulan diversos ingredientes y no podemos garantizar al 100% la ausencia de contaminación cruzada.</p>
+
+    <h3>¿Es obligatorio contratar un seguro de viaje y me ayudan a tramitarlo?</h3>
+    <p>Dado que los costes de una evacuación médica en alta mar o de repatriación internacional pueden ascender a decenas de miles de euros, viajar con un seguro de asistencia médica es <strong>altamente recomendable</strong> (y obligatorio para ciertos destinos o itinerarios).</p>
+    <p><strong>El Servicio Asistido de Oceanova:</strong> Sabemos que comparar pólizas, leer la "letra pequeña" y entender qué cubre cada una puede ser abrumador. Por eso, <strong>Oceanova Cruises te tramita y gestiona tu seguro de viaje de forma 100% gratuita</strong>. Nuestro departamento de riesgos analizará tu itinerario (por ejemplo, si vas a EE.UU. necesitas una cobertura médica mínima superior) y te emitirá la póliza ideal con las mejores compañías de asistencia global (como Universal Assistance o ERV).</p>
+    <p><em>Nota:</em> Al igual que con los visados, <strong>nuestra gestión, asesoramiento y emisión son gratis</strong>. El pasajero únicamente abona la prima oficial de la póliza elegida.</p>
+
+    <h3>¿Cómo accedo a la gestión gratuita de mi Seguro Médico?</h3>
+    <p>Para contratar o consultar las coberturas de tu seguro de viaje (que incluye asistencia médica 24h, repatriación, cancelación y equipajes), solo debes acceder a tu área de cliente y hacer clic en el botón <strong>"Solicitar Servicios"</strong>. Selecciona la opción "Seguro y Asistencia Médica" y nuestro equipo te enviará la propuesta adaptada a tu crucero en menos de 24 horas.</p>
+  </div>
+
+  <!-- Topic 4: Accesibilidad y Necesidades Especiales -->
+  <div class="content-section" id="topic4">
+    <h2>4. Accesibilidad y Necesidades Especiales</h2>
+
+    <h3>¿Cómo solicito asistencia especial o un camarote adaptado?</h3>
+    <p>En Oceanova Cruises creemos que el mar es para todos. Si tienes movilidad reducida, discapacidad sensorial o cualquier necesidad específica, debes indicarlo en el momento de realizar la reserva.</p>
+    <p>Para facilitarte la vida, accede a tu área de cliente y haz clic en el botón <strong>"Solicitar Servicios"</strong>. Selecciona la opción "Accesibilidad". Nuestro equipo de inclusión evaluará tu caso, te asignará uno de nuestros camarotes adaptados (equipados con barras de apoyo y puertas anchas) y te asesorará sobre las excursiones accesibles en cada puerto.</p>
+
+    <h3>¿Puedo viajar en silla de ruedas? ¿Necesito un acompañante?</h3>
+    <p>Sí, nuestros barcos cuentan con ascensores, rampas y zonas públicas diseñadas para sillas de ruedas.</p>
+    <p><strong>Tu equipo:</strong> Debes traer tu propia silla de ruedas (te recomendamos que sea plegable y de tamaño estándar para garantizar que quepa perfectamente en tu camarote). <em>¿No puedes transportarla?</em> A través del botón "Solicitar Servicios", nuestro equipo puede coordinar el alquiler y entrega de una silla de ruedas médica en tu camarote el día de embarque.</p>
+    <p><strong>El acompañante:</strong> Por normativas de seguridad marítima, los pasajeros que no sean autosuficientes o que requieran asistencia médica constante deben viajar acompañados.</p>
+    <p><strong>El Programa Oceanova Inclusion:</strong> Sabemos que viajar con un acompañante es un esfuerzo económico. Si nuestro equipo médico determina que tu acompañante es <strong>estrictamente obligatorio</strong> por seguridad, <strong>Oceanova Cruises bonificará el 100% de la tarifa base del crucero de tu acompañante</strong> (únicamente se abonarían las tasas portuarias e impuestos gubernamentales).</p>
+
+    <h3>¿Qué facilidades existen para pasajeros con discapacidad visual o auditiva?</h3>
+    <p><strong>Visual:</strong> Nuestros barcos cuentan con señalización en Braille en ascensores y camarotes, y menús en Braille o con macro-tipo bajo petición. Los perros guía son más que bienvenidos a bordo. <em>A través del botón "Solicitar Servicios", nuestro departamento legal tramitará gratuitamente toda la compleja documentación veterinaria y visados de entrada requeridos por los países de escala para tu perro guía.</em></p>
+    <p><strong>Auditiva:</strong> Disponemos de kits de alerta (luces vibrantes para la puerta y teléfono) y amplificadores en los teatros. Si la discapacidad auditiva es total, por seguridad, se requerirá la presencia de un acompañante.</p>
+
+    <h3>¿Qué ocurre en los puertos donde el barco ancla lejos de la costa (puertos de fondeo)?</h3>
+    <p>En algunos destinos paradisíacos, los puertos no permiten el atraque directo del barco y es necesario utilizar botes auxiliares (lanchas) para llegar a tierra.</p>
+    <p>Por tu seguridad, te informamos que el descenso en estas lanchas requiere agilidad, equilibrio y la capacidad de sortear huecos, por lo que <strong>no es apto para sillas de ruedas ni personas con movilidad muy reducida</strong>. El Capitán podrá denegar el descenso si considera que compromete tu seguridad.</p>
+    <p><em>Nota Oceanova:</em> Para esos días, nuestro equipo de animación organizará actividades exclusivas a bordo y eventos especiales para que los pasajeros que no puedan desembarcar disfruten de un día inolvidable en el barco.</p>
+
+    <h3>¿Los niños con necesidades especiales pueden participar en los clubes infantiles?</h3>
+    <p>¡Por supuesto! Nuestros clubes infantiles están diseñados para ser inclusivos. El personal está entrenado para adaptar las actividades y juegos a las capacidades de cada niño.</p>
+    <p><strong>Importante:</strong> Aunque fomentamos su integración en los grupos de su edad (o de edades menores si los padres lo prefieren), el personal del barco no puede proporcionar cuidados de enfermería 1 a 1, asistencia médica personalizada o cuidado de niños menores de 3 años que no estén completamente entrenados para ir al baño.</p>
+  </div>
+
+  <!-- Topic 5: Embarque y Desembarque -->
+  <div class="content-section" id="topic5">
+    <h2>5. Embarque y Desembarque</h2>
+
+    <h3>¿Cómo y cuándo debo realizar el Check-in?</h3>
+    <p>Para garantizar un embarque ágil y sin colas, en Oceanova Cruises utilizamos el sistema <strong>Oceanova Smart Check-in</strong>. Deberás completar tus datos, subir la foto de tu documentación y seleccionar tu hora de llegada a través de nuestra web o app hasta 48 horas antes de la salida.</p>
+    <p><strong>Ventaja Oceanova:</strong> Al completar el Smart Check-in, obtendrás acceso al carril <strong>Fast-Track</strong> en la terminal, reduciendo tu tiempo de espera a menos de 10 minutos.</p>
+
+    <h3>¿A qué hora debo llegar al puerto y qué pasa si mi vuelo se retrasa?</h3>
+    <p>Te recomendamos estar en la terminal de embarque entre <strong>3 y 4 horas antes</strong> de la hora de salida del barco.</p>
+    <p><strong>¿Vuelas con nosotros?</strong> Si has contratado tu vuelo a través de Oceanova, no te preocupes. Nuestro equipo de traslados se coordina directamente con la aerolínea. Si tu vuelo se retrasa, nuestro personal te estará esperando en el aeropuerto de llegada para llevarte directamente al barco (el crucero esperará o se gestionará tu enlace al siguiente puerto según el protocolo).</p>
+
+    <h3>¿Cuánto equipaje puedo llevar y cómo lo etiqueto?</h3>
+    <p>A diferencia de otras navieras que permiten cifras irreales, en Oceanova somos realistas: el límite recomendado es de <strong>2 bultos de hasta 23 kg cada uno por pasajero</strong>, para que sea totalmente compatible con los límites de las compañías aéreas si vuelas hacia el puerto de embarque.</p>
+    <p>Al recibir tu documentación, te enviaremos las <strong>Etiquetas Oceanova</strong>. Debes imprimirlas, rellenarlas y colocarlas en el asa de cada maleta antes de llegar al puerto. En la terminal, el personal se hará cargo de tu equipaje grande para entregarlo directamente en la puerta de tu camarote.</p>
+
+    <h3>¿Qué objetos están prohibidos a bordo por seguridad?</h3>
+    <p>Por tu seguridad y la de todos, está estrictamente prohibido llevar a bordo:</p>
+    <ul>
+      <li>Armas de fuego, explosivos, sustancias ilegales o inflamables.</li>
+      <li>Drones (deben facturarse en tierra si el destino lo permite).</li>
+      <li>Electrodomésticos con resistencia: Planchas de ropa, calentadores de agua o cafeteras (por riesgo de incendio). Los camarotes cuentan con secadores y, bajo petición, servicio de planchado.</li>
+    </ul>
+    <p><strong>Nota sobre compras en puerto:</strong> Por normativas sanitarias y aduaneras, no se permite subir a bordo alimentos ni bebidas (incluido alcohol) comprados durante las escalas en los puertos. El personal de seguridad los retirará en el scanner y te los devolverá la mañana del desembarque final.</p>
+
+    <h3>¿Cómo funciona el proceso de desembarque el último día?</h3>
+    <p>El desembarque es un proceso ordenado para que todos puedan bajar con comodidad.</p>
+    <ul>
+      <li><strong>La noche anterior:</strong> Recibirás en tu camarote unas etiquetas de colores. Elige el color que mejor se adapte a tu horario de vuelo/traslado de regreso.</li>
+      <li><strong>Medianoche:</strong> Deja tus maletas etiquetadas fuera de la puerta de tu camarote. Nuestro equipo las recogerá y las llevará a la terminal.</li>
+      <li><strong>La mañana de la despedida:</strong> Desayuna con tranquilidad. Cuando se anuncie tu color por los altavoces, simplemente baja del barco, recoge tu equipaje en la terminal y ¡hacia casa! (Si prefieres llevar tus maletas tú mismo, puedes elegir la opción "Desembarque Rápido", cargando tú con todo tu equipaje).</li>
+    </ul>
+
+    <h3>¿Ofrecen algún servicio para no cargar con las maletas desde el aeropuerto?</h3>
+    <p>¡Sí, y es uno de nuestros servicios estrella! Sabemos que arrastrar maletas desde el aeropuerto hasta la terminal de cruceros es agotador.</p>
+    <p><strong>El Servicio Asistido de Oceanova:</strong> A través del botón "Solicitar Servicios" en tu área de cliente, puedes contratar nuestro servicio de <strong>Logística de Equipaje</strong>. Nuestro equipo recogerá tus maletas en el aeropuerto de llegada (o en tu domicilio si sales desde la misma ciudad) y las dejará directamente en tu camarote el día del embarque. ¡Tú solo viajas con tu equipaje de mano y disfrutas de la ciudad el día de llegada sin preocupaciones!</p>
+  </div>
+
+  <!-- Topic 6: Vida a Bordo: Instalaciones y Servicios -->
+  <div class="content-section" id="topic6">
+    <h2>6. Vida a Bordo: Instalaciones y Servicios</h2>
+
+    <h3>¿Cómo son los camarotes y qué tipo de enchufes utilizan?</h3>
+    <p>Nuestros camarotes están diseñados para optimizar cada centímetro, ofreciendo un espacio acogedor, elegante y funcional. <em>Nota de transparencia:</em> Al ser un barco, las dimensiones son más compactas que las de un hotel en tierra, pero nuestro diseño inteligente garantiza que tengas todo lo que necesitas a mano.</p>
+    <p><strong>Conectividad y Corriente:</strong> Olvídate de los adaptadores. Todos nuestros camarotes cuentan con tomas de corriente de <strong>220V estándar</strong>, además de <strong>puertos USB y USB-C integrados</strong> en las mesitas de noche y el escritorio. Podrás cargar tu móvil, tablet o portátil directamente sin necesidad de llevar adaptadores de viaje.</p>
+
+    <h3>¿Puedo lavar mi ropa durante el crucero?</h3>
+    <p>Sabemos que para viajes de más de 7 días, lavar la ropa es una necesidad, no un lujo. A diferencia de otras navieras que solo ofrecen costosos servicios de tintorería o prohíben la autolavandería, en Oceanova Cruises creemos en tu comodidad:</p>
+    <ul>
+      <li><strong>Lavandería de Autoservicio Gratuita:</strong> En cada cubierta de pasajeros dispondrás de un lavadero de autoservicio totalmente gratuito, equipado con lavadoras, secadoras, tablas de planchar y planchas (de vapor, por supuesto).</li>
+      <li><strong>Servicio Express:</strong> Si prefieres no ocuparte de ello, nuestro servicio de lavandería y limpieza en seco de pago está disponible todos los días. Puedes solicitar las bolsas y listas de precios en tu camarote.</li>
+    </ul>
+
+    <h3>¿Cómo funciona la conexión a Internet y Wi-Fi a bordo?</h3>
+    <p>Navegar no significa estar desconectado. Nuestros barcos están equipados con la tecnología satelital de última generación (Banda Ancha de Alta Velocidad), lo que te permitirá navegar, usar redes sociales, hacer videollamadas e incluso ver series en streaming con una estabilidad muy superior a la de los cruceros tradicionales.</p>
+    <p><strong>Paquetes Oceanova Connect:</strong> Puedes contratar planes de datos ilimitados para 1 o varios dispositivos.</p>
+    <p><strong>Consejo Oceanova:</strong> Para obtener un 20% de descuento, puedes <strong>pre-contratar</strong> tu paquete de Internet antes de zarpar. Solo tienes que acceder a tu área de cliente y hacer clic en el botón "Solicitar Servicios", seleccionando la opción "Conectividad a Bordo".</p>
+
+    <h3>¿Puedo usar mi teléfono móvil personal a bordo?</h3>
+    <p>Sí, pero con matices importantes. Cuando el barco está en alta mar, tu teléfono se conectará a nuestra red satelital marítima (<em>Roaming Marítimo</em>) para que puedas hacer y recibir llamadas o SMS.</p>
+    <p><strong>Advertencia de coste:</strong> Las tarifas de roaming marítimo internacional son muy elevadas y no suelen estar cubiertas por las tarifas planas de tu operador en tierra.</p>
+    <p><strong>Nuestra recomendación:</strong> Para evitar facturas sorpresa, te sugerimos poner tu móvil en "Modo Avión" y conectarte a la red Wi-Fi del barco para usar aplicaciones como WhatsApp, FaceTime o Skype.</p>
+
+    <h3>¿Qué otros servicios están disponibles dentro de mi camarote?</h3>
+    <p>Tu camarote es tu refugio privado y cuenta con:</p>
+    <ul>
+      <li><strong>Caja fuerte electrónica:</strong> Perfectamente dimensionada para tu portátil, pasaportes y joyas.</li>
+      <li><strong>Servicio de Habitaciones 24/7:</strong> Un menú disponible las 24 horas para que puedas desayunar, cenar o pedir un snack a cualquier hora (sujeto a un pequeño cargo por servicio, excepto el desayuno continental que es gratuito).</li>
+      <li><strong>Climatización individual:</strong> Para que ajustes la temperatura a tu gusto.</li>
+      <li><strong>Televisión interactiva:</strong> Donde podrás ver tu cuenta de gastos en tiempo real, el programa diario de actividades, reservar excursiones o solicitar el servicio de camarero.</li>
+    </ul>
+  </div>
+
+  <!-- Topic 7: Gastronomía y Bebidas -->
+  <div class="content-section" id="topic7">
+    <h2>7. Gastronomía y Bebidas</h2>
+
+    <h3>¿Cómo funcionan los horarios de comedor? ¿Tengo que atenerme a un turno fijo?</h3>
+    <p>En Oceanova Cruises creemos que tus vacaciones deben adaptarse a ti, y no al revés. Ofrecemos dos modalidades para que elijas la que mejor se adapte a tu ritmo:</p>
+    <ul>
+      <li><strong>Turno Tradicional:</strong> Si te gusta la rutina y conocer a tus compañeros de mesa, puedes reservar un turno fijo (Primero o Segundo turno).</li>
+      <li><strong>Oceanova Flex Dining (Turno Abierto):</strong> ¡Come cuando quieras! Entre las 18:00 y las 21:30 h, acude al restaurante principal y te acomodaremos inmediatamente. A diferencia de la competencia, en Oceanova <strong>no exigimos el prepago obligatorio de propinas</strong> para acceder a esta flexibilidad. También están abiertos algunos departamentos de comida y bebidas las 24 horas en diferentes áreas entre ellas piscinas y bares.</li>
+    </ul>
+
+    <h3>¿Cuál es la política de consumo de alcohol a bordo?</h3>
+    <p>Queremos que disfrutes con responsabilidad y cumpliendo las normativas internacionales:</p>
+    <ul>
+      <li><strong>Cruceros por Europa:</strong> La edad mínima para consumir cualquier tipo de bebida alcohólica es de <strong>18 años</strong>.</li>
+      <li><strong>Cruceros con escala o salida en EE.UU.:</strong> La edad mínima se eleva a <strong>21 años</strong>. (Los pasajeros de 18 a 20 años solo podrán consumir cerveza o vino si un padre o tutor legal firma una autorización expresa en el momento del embarque).</li>
+    </ul>
+
+    <h3>¿Puedo llevar mis propias bebidas a bordo o subir las que compre en los puertos?</h3>
+    <ul>
+      <li><strong>Al embarcar:</strong> Permitimos amablemente que cada camarote suba <strong>2 botellas de vino o cava</strong> el día del embarque para que brinden en su privacidad. Si deciden consumirlas en un restaurante o bar del barco, aplicaremos un cargo por descorche simbólico y transparente.</li>
+      <li><strong>Compras en puerto:</strong> Sabemos que es frustrante que otras navieras confisquen tus compras. En Oceanova, si adquieres bebidas o alimentos en una escala, nuestro personal de seguridad los identificará, los <strong>custodiará de forma gratuita</strong> en un almacén seguro durante el viaje y te los entregará en tu camarote la mañana del desembarque final. ¡Tú disfruta de tu compra, nosotros la guardamos!</li>
+    </ul>
+
+    <h3>¿Cómo gestionan las dietas especiales y las intolerancias?</h3>
+    <p>Nuestra cocina está preparada para ofrecerte menús sin gluten (certificados), veganos, kosher, bajos en sodio o adaptados a alergias severas.</p>
+    <p><strong>El Servicio Asistido de Oceanova:</strong> Solo debes indicarlo al hacer la reserva. Si tienes dudas sobre qué ingredientes son seguros para ti, utiliza el botón <strong>"Solicitar Servicios"</strong> y nuestro departamento de nutrición a bordo se pondrá en contacto contigo <em>antes</em> del viaje para validar tu menú y garantizar que el <em>Maître</em> esté perfectamente informado el primer día.</p>
+  </div>
+
+  <!-- Topic 8: Entretenimiento, Excursiones y Actividades -->
+  <div class="content-section" id="topic8">
+    <h2>8. Entretenimiento, Excursiones y Actividades</h2>
+
+    <h3>¿Cómo reservo las excursiones en tierra y qué pasa si me cancelan?</h3>
+    <p>Ofrecemos una cuidada selección de excursiones diseñadas para sincronizarse perfectamente con los horarios del barco, garantizando que nunca te quedes en tierra.</p>
+    <p><strong>Flexibilidad Oceanova:</strong> A diferencia de la competencia, donde las excursiones son "no reembolsables", en Oceanova ofrecemos <strong>cancelación gratuita hasta 48 horas antes</strong> de la escala (sujeto a disponibilidad de la plaza).</p>
+    <p><strong>Garantía de Precio:</strong> Si encuentras la misma excursión (mismo operador, mismo recorrido) a un precio menor, igualamos el precio y te aplicamos un 5% de descuento adicional.</p>
+
+    <h3>¿Hay actividades para niños y adolescentes? ¿Cuáles son los límites de edad para las instalaciones?</h3>
+    <p>¡Nos encantan las familias a bordo! Contamos con el <strong>Oceanova Kids & Teens Club</strong>, con actividades divididas por grupos de edad, supervisadas por animadores certificados.</p>
+    <p><strong>Instalaciones:</strong> Para garantizar la seguridad, el Gimnasio y el Spa son para mayores de 16/18 años. El Casino y los bares tienen restricción estricta de +18 años. Instalaciones como la tirolina o el rocódromo tienen límites de peso y estatura, pero nuestro personal te asesorará en el momento para que los más pequeños disfruten al máximo.</p>
+
+    <h3>¿Qué ocurre si una excursión no es accesible para mi silla de ruedas?</h3>
+    <p>Nuestro equipo de "Concierge de Accesibilidad" revisa cada itinerario. Si una excursión estándar no es apta, te propondremos automáticamente una <strong>alternativa adaptada</strong> o un tour privado accesible. Si ninguna opción es viable, te reembolsaremos el importe íntegro sin preguntas y te invitaremos a un evento exclusivo a bordo mientras el barco está en puerto.</p>
+  </div>
+
+  <!-- Topic 9: Normativas de Conducta y Seguridad -->
+  <div class="content-section" id="topic9">
+    <h2>9. Normativas de Conducta y Seguridad</h2>
+
+    <h3>¿Dónde se permite fumar a bordo?</h3>
+    <p>La salud y comodidad de todos nuestros huéspedes es prioritaria.</p>
+    <ul>
+      <li>Está <strong>estrictamente prohibido</strong> fumar (incluidos cigarrillos electrónicos y vapeadores) en el interior de los camarotes, balcones, restaurantes, teatros y pasillos.</li>
+      <li>Hemos habilitado <strong>Zonas de Fumadores</strong> amplias y ventiladas en cubiertas exteriores específicas y en nuestro "Cigar Lounge".</li>
+    </ul>
+    <p><em>Nota:</em> Para evitar malentendidos, en caso de infringir esta norma, se aplicará una tasa de limpieza de 250€ a tu cuenta a bordo, pero nuestro personal te avisará amablemente en la primera ocasión para prevenir la multa.</p>
+
+    <h3>¿Qué objetos están terminantemente prohibidos a bordo?</h3>
+    <p>Por seguridad marítima internacional, no se permiten: armas de fuego, municiones, explosivos, drogas o sustancias ilegales, drones (deben facturarse), y aparatos eléctricos con resistencia (planchas, hervidores).</p>
+    <p><strong>Alimentos:</strong> No se permite subir alimentos frescos o perecederos al barco para prevenir plagas, excepto alimentos específicos para bebés o dietas médicas certificadas.</p>
+
+    <h3>¿Son obligatorios los simulacros de seguridad?</h3>
+    <p>Sí, es una normativa internacional de seguridad no negociable. Antes de zarpar, se realizará un simulacro obligatorio (Muster Drill). Nuestro personal te guiará de forma rápida y sencilla hacia tu punto de reunión. La duración es mínima (unos 15-20 minutos) y es fundamental para garantizar la seguridad de todos.</p>
+  </div>
+
+  <!-- Topic 10: Modificaciones, Cancelaciones y Seguros -->
+  <div class="content-section" id="topic10">
+    <h2>10. Modificaciones, Cancelaciones y Seguros</h2>
+
+    <h3>¿Puedo cambiar el nombre de un pasajero o la fecha de mi crucero?</h3>
+    <p>Sabemos que la vida es impredecible. Por eso, nuestra política es la más flexible del mercado:</p>
+    <ul>
+      <li><strong>Cambio de nombre:</strong> Permitimos la cesión de la reserva a otra persona hasta <strong>7 días antes</strong> de la salida (la competencia suele cortarlo a los 15 o 30 días). El gasto administrativo es de solo 50€.</li>
+      <li><strong>Cambio de fecha:</strong> Puedes reprogramar tu viaje a una fecha posterior (mismo itinerario) hasta 30 días antes, sujeto a disponibilidad y un gasto de gestión de 50€. Si hay diferencia de precio a favor de Oceanova, te la reembolsamos; si es a tu favor, solo abonas la diferencia.</li>
+    </ul>
+
+    <h3>¿Cuáles son los gastos si debo cancelar mi viaje?</h3>
+    <p>Aplicamos una escala de cancelación justa y progresiva (por persona):</p>
+    <ul>
+      <li>Más de 60 días antes: Solo pierdes el depósito inicial.</li>
+      <li>Entre 59 y 30 días: 25% del precio total.</li>
+      <li>Entre 29 y 15 días: 50% del precio total.</li>
+      <li>Menos de 14 días: 80% del precio total.</li>
+    </ul>
+    <p><em>Nota:</em> Las tarifas "Super Flex" o "Todo Incluido" de Oceanova permiten cancelación gratuita hasta 15 días antes.</p>
+
+    <h3>¿Si la compañía cancela o altera mi crucero, qué derechos tengo?</h3>
+    <p>Si por causas operativas o de fuerza mayor debemos cancelar o alterar significativamente tu viaje, te ofreceremos:</p>
+    <ol>
+      <li>Un crucero sustitutivo de calidad igual o superior (si es inferior, te devolvemos la diferencia).</li>
+      <li>La reprogramación a otra fecha sin costes adicionales.</li>
+      <li><strong>Reembolso íntegro</strong> de lo pagado en un plazo máximo de 14 días.</li>
+    </ol>
+    <p><strong>Bonus Oceanova:</strong> Como gesto de disculpa por las molestias, te regalaremos un <strong>Crédito a Bordo de 100€</strong> o un descuento del 15% para tu próxima reserva.</p>
+
+    <h3>¿Es obligatorio el seguro de viaje y me ayudan a tramitarlo?</h3>
+    <p>Dado que una evacuación médica en alta mar puede costar decenas de miles de euros, el seguro de asistencia en viaje es <strong>altamente recomendable y, en algunos itinerarios (ej. EE.UU., Schengen), obligatorio</strong>.</p>
+    <p><strong>El Servicio Asistido de Oceanova (Gestión 100% Gratuita):</strong> No te dejamos solo ante una póliza complicada. Nuestro departamento de riesgos analiza tu perfil y te gestiona la contratación del mejor seguro (con coberturas médicas ilimitadas, repatriación y cancelación) con las mejores aseguradoras globales.</p>
+    <p><strong>Gestión de Siniestros:</strong> Si lamentablemente sufres un imprevisto, <strong>nosotros tramitamos el expediente de reclamación con la aseguradora por ti</strong>. Tú solo nos facilitas los documentos médicos; nuestro equipo legal se encarga del papeleo, las llamadas y el seguimiento hasta que recibes tu reembolso. <em>Tú solo pagas la prima del seguro; nuestra gestión y defensa de tus derechos son totalmente gratis.</em></p>
+    <p><strong>¿Cómo acceder?</strong> Ve a tu área de cliente, botón <strong>"Solicitar Servicios"</strong> > "Seguro y Asistencia".</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Oceanova Cruises - reservas@oceanova.com | 1-800-CRUCEROS</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() { 
+  document.getElementById('navMenu').classList.toggle('active'); 
+}
+
+// Cerrar menú automáticamente al hacer clic en un enlace (para móviles)
+document.querySelectorAll('#navMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('active');
+  });
+});
+
+// Function to show topic content
+function showTopic(topicNumber) {
+  // Hide the main contact window
+  document.getElementById('contactWindow').style.display = 'none';
+  
+  // Hide all topic sections
+  for (let i = 1; i <= 10; i++) {
+    document.getElementById('topic' + i).style.display = 'none';
+  }
+  
+  // Show the selected topic
+  document.getElementById('topic' + topicNumber).style.display = 'block';
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+
+// Function to go back to main menu
+function goBackToMenu() {
+  // Hide all topic sections
+  for (let i = 1; i <= 10; i++) {
+    document.getElementById('topic' + i).style.display = 'none';
+  }
+  
+  // Show the main contact window
+  document.getElementById('contactWindow').style.display = 'block';
+}
+
+// Add back button to each topic section
+for (let i = 1; i <= 10; i++) {
+  const topicSection = document.getElementById('topic' + i);
+  const backButton = document.createElement('button');
+  backButton.className = 'topic-btn btn-back';
+  backButton.style.marginTop = '20px';
+  backButton.textContent = 'Atrás';
+  backButton.onclick = goBackToMenu;
+  topicSection.appendChild(backButton);
+}
+</script>
+
+</body>
+</html>
