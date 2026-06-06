@@ -1,87 +1,414 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver País Seleccionado</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #f0f0f0;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-        h1 {
-            color: #0066cc;
-            margin-bottom: 20px;
-        }
-        .resultado {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            padding: 20px;
-            background: #e8f4f8;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        button {
-            margin-top: 20px;
-            padding: 12px 30px;
-            font-size: 16px;
-            background: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #004a99;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oceanova Cruises - Solicitud de Empleo</title>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/300.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/500.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/600.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/700.css" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: #f5f9fc; color: #222; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; display: block; }
+
+/* HEADER */
+header { 
+  position: fixed; top: 0; width: 100%; z-index: 1000; 
+  background: rgba(0, 51, 102, 0.85);
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+  padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; 
+}
+.logo { color: white; font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+nav { display: flex; gap: 25px; align-items: center; }
+nav a { color: white; font-size: 15px; transition: 0.3s; }
+nav a:hover { color: #4fc3f7; }
+.btn-primary { background: linear-gradient(135deg,#00b4ff,#0066ff); color: white; padding: 12px 22px; border-radius: 30px; font-weight: 600; transition: 0.3s; display: inline-block; cursor: pointer; border: none; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,102,255,0.3); }
+
+.menu-toggle { 
+  display: none; color: white; font-size: 28px; cursor: pointer; 
+  background: none; border: none; 
+}
+
+/* MAIN CONTENT */
+.main-container { margin-top: 70px; padding: 60px 6%; min-height: calc(100vh - 70px - 80px); display: flex; align-items: center; justify-content: center; flex-direction: column; }
+
+/* VENTANA AZUL PRINCIPAL */
+.contact-window {
+  background: linear-gradient(135deg, #0066cc, #004a99);
+  color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,51,102,0.3);
+  margin-top: 20px;
+}
+.contact-window img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.contact-window .info-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-align: justify;
+}
+.contact-window .info-text strong { color: #a8d8ff; }
+
+/* BOTONES */
+.contact-btn {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: 0.3s;
+  letter-spacing: 0.5px;
+}
+.contact-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+/* Botón amarillo con letras negras - Información de Contratado */
+.btn-info-contratado { 
+  background: linear-gradient(135deg, #FFD700, #FFC107); 
+  color: #000000; 
+}
+
+/* Botón rojo con letras amarillas - Necesito Ayuda */
+.btn-ayuda { 
+  background: linear-gradient(135deg, #e74c3c, #c0392b); 
+  color: #FFD700; 
+}
+
+/* Botón información para contratados */
+.btn-info-general { 
+  background: linear-gradient(135deg, #3498db, #2980b9); 
+  color: white; 
+}
+
+/* Botón rojo con letras blancas - Solicitar Contrato */
+.btn-solicitar { 
+  background: linear-gradient(135deg, #e74c3c, #c0392b); 
+  color: white; 
+}
+
+/* Botón negro con letras blancas - Atrás */
+.btn-back { 
+  background: linear-gradient(135deg, #2c3e50, #000000); 
+  color: white;
+  margin-top: 10px; 
+}
+
+/* VENTANAS MODALES */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+.modal-window {
+  background: linear-gradient(135deg, #0066cc, #004a99);
+  color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: modalAppear 0.3s ease;
+}
+@keyframes modalAppear {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal-window h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.modal-window p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* SELECT DE PAÍSES */
+.country-select {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  margin-bottom: 20px;
+  background: white;
+  cursor: pointer;
+}
+.country-select option[value="espana"] {
+  background-color: #FFD700;
+  color: #e74c3c;
+}
+.country-select option[value="canada"] {
+  background-color: #e74c3c;
+  color: white;
+}
+.country-select option[value="estados-unidos"] {
+  background-color: #0033A0;
+  color: #FFD700;
+}
+.country-select option[value="uruguay"] {
+  background-color: #800080;
+  color: #FFFFFF;
+}
+.country-select option[value="brasil"] {
+  background-color: #009C3B;
+  color: #FFD700;
+}
+
+/* Botón morado - Continuar */
+.btn-continuar {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  color: white;
+}
+
+/* FOOTER */
+footer { background: #001a33; color: white; padding: 30px 6% 20px; }
+.footer-bottom { text-align: center; color: #999; font-size: 14px; }
+
+/* RESPONSIVE */
+@media(max-width:1024px) {
+  nav { 
+    position: absolute; top: 80px; right: 0; 
+    background: rgba(0,51,102,0.95); 
+    flex-direction: column; width: 100%; padding: 30px; 
+    display: none; 
+  }
+  nav.active { display: flex; }
+  .menu-toggle { display: block; }
+  .contact-window .info-text {
+    font-size: 14px;
+    text-align: left;
+  }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>País Seleccionado para Postulación</h1>
-        <div class="resultado" id="resultado">Cargando...</div>
-        <button onclick="mostrarPais()">Actualizar</button>
-    </div>
 
-    <script>
-        function mostrarPais() {
-            const pais = localStorage.getItem('paisquepostula');
-            const resultadoDiv = document.getElementById('resultado');
-            
-            if (pais) {
-                // Mapear el valor a nombre completo del país
-                const nombresPaises = {
-                    'espana': 'España',
-                    'canada': 'Canadá',
-                    'estados-unidos': 'Estados Unidos',
-                    'uruguay': 'Uruguay',
-                    'brasil': 'Brasil'
-                };
-                
-                const nombreCompleto = nombresPaises[pais] || pais;
-                resultadoDiv.textContent = nombreCompleto;
-                resultadoDiv.style.color = '#0066cc';
-            } else {
-                resultadoDiv.textContent = 'No hay país seleccionado';
-                resultadoDiv.style.color = '#999';
-            }
-        }
-        
-        // Mostrar el país al cargar la página
-        mostrarPais();
-    </script>
+<header>
+  <div class="logo">Oceanova Cruises</div>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+  <nav id="navMenu">
+    <a href="https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html">Inicio</a>
+    <a href="https://cibermoney2025.blogspot.com/p/barcos-7p.html">Barcos</a>
+    <a href="https://tecnomago3000-coder.github.io/Cruceros/solicitud.html">Solicitar Empleo</a>
+    <a href="https://tecnomago3000-coder.github.io/Cruceros/contacto.html">Contacto</a>
+    <a href="https://tecnomago3000-coder.github.io/Cruceros/dudas.html">Dudas</a>
+    <a href="https://tudominio.com/reservar" class="btn-primary">Reservas</a>
+  </nav>
+</header>
+
+<div class="main-container" id="inicio">
+  <div class="contact-window" id="contactWindow">
+    <!-- IMAGEN NUEVA -->
+    <img src="https://tecnomago3000-coder.github.io/Cruceros/solicitud.png" alt="Solicitud de Empleo Oceanova Cruises" />
+
+    <!-- TEXTO NUEVO -->
+    <p class="info-text">
+      En estos momentos solo estamos ofertando empleo para Trabajar en Estados Unidos,España,Canadá,Uruguay y Brasil.<br><br>
+      Solo puedes solicitar empleo para uno de los dos lugares.No importa tu nacionalidad o que estes en otro país en estado migratorio irregular o que no tengas el presupuesto para viajar a España o a Canadà.<br><br>
+      En caso de que le elijamos para trabajar con nosotros la empresa según el caso le pagarà tramitaciòn y costo de el pasaje, avituallamiento, alojamiento, alimentación y visado haciendole el descuento progresivo de su salario mensual en el transcurso de un año.<br><br>
+      Valoramos mucho a nuestros trabajadores y es por ello que los elegidos para laborar con nosotros tienen facilidades únicas que pueden conocer usando el botón  debajo que dice: <strong>Información de Contratados</strong>.<br><br>
+      Para solicitar Contrato debes de usar el botón <strong>Solicitar Contrato</strong>, después de ello llenas el formulario y regresa aquí después de 24 horas mínimo que es lo que demoramos en dar respuestas de las solicitudes y máximo 96 horas, porque en caso de ser aprobado(a) si no termina el tramite antes de las 72 horas (tres días) después de su aprobación, la plaza se le otorgará a otra persona y no podrá usted aplicar de nuevo hasta mínimo dentro de un mes.<br><br>
+      Asegurese de llenar correctamente el formulario puede anularse su postulaciòn en caso de que no lo haga correctamente.<br><br>
+      En caso de ayuda pinche el botón <strong>Necesito Ayuda</strong> para que se comunique con el jefe de Gestores Regional a través de Telegram.
+    </p>
+
+    <!-- BOTÓN AMARILLO - Información de Contratado -->
+    <button class="contact-btn btn-info-contratado" onclick="openInfoContratadoModal()">
+      Información de Contratados
+    </button>
+
+    <!-- BOTÓN ROJO CON LETRAS AMARILLAS - Necesito Ayuda -->
+    <button class="contact-btn btn-ayuda" onclick="window.open('https://t.me/axel2924','_blank')">
+      Necesito Ayuda
+    </button>
+
+    <!-- BOTÓN INFORMACIÓN PARA CONTRATADOS 
+    <button class="contact-btn btn-info-general" onclick="openInfoGeneralModal()">
+      Información para Contratados
+    </button>
+-->
+    <!-- BOTÓN ROJO CON LETRAS BLANCAS - Solicitar Contrato -->
+    <button class="contact-btn btn-solicitar" onclick="openSolicitarModal()">
+      Solicitar Contrato
+    </button>
+
+    <!-- BOTÓN ATRÁS -->
+    <button class="contact-btn btn-back" onclick="window.open('https://cibermoney2025.blogspot.com/p/ocean-cruises-6.html','_blank')">
+      Atrás
+    </button>
+  </div>
+</div>
+
+<!-- MODAL INFORMACIÓN DE CONTRATADO -->
+<div class="modal-overlay" id="modalInfoContratado">
+  <div class="modal-window">
+    <h2>Beneficios Exclusivos para Contratados</h2>
+    <p>
+      Como trabajador seleccionado de Oceanova Cruises, tendrás acceso a beneficios únicos:<br><br>
+      • Alojamiento gratuito durante el primer mes<br>
+      • Seguro médico completo<br>
+      • Capacitación continua<br>
+      • Posibilidades de ascenso<br>
+      • Bonos por desempeño<br>
+      • Vacaciones pagadas
+    </p>
+    <button class="contact-btn btn-back" onclick="closeModal('modalInfoContratado')">
+      Atrás
+    </button>
+  </div>
+</div>
+
+<!-- MODAL INFORMACIÓN GENERAL PARA CONTRATADOS -->
+<div class="modal-overlay" id="modalInfoGeneral">
+  <div class="modal-window">
+    <h2>Información General para Contratados</h2>
+    <p>
+      Bienvenido a Oceanova Cruises. Aquí encontrarás información importante sobre tu contrato, horarios, beneficios y políticas de la empresa. Mantente atento a tu correo electrónico para recibir actualizaciones.
+    </p>
+    <button class="contact-btn btn-back" onclick="closeModal('modalInfoGeneral')">
+      Atrás
+    </button>
+  </div>
+</div>
+
+<!-- MODAL SOLICITAR CONTRATO - SELECCIÓN DE PAÍS -->
+<div class="modal-overlay" id="modalSolicitar">
+  <div class="modal-window">
+    <h2>Elija en que país solicitas trabajo</h2>
+    <select class="country-select" id="countrySelect">
+      <option value="">-- Seleccione un país --</option>
+      <option value="espana">España</option>
+      <option value="canada">Canadá</option>
+      <option value="estados-unidos">Estados Unidos</option>
+      <option value="uruguay">Uruguay</option>
+      <option value="brasil">Brasil</option>
+    </select>
+    
+    <!-- BOTÓN MORADO - CONTINUAR -->
+    <button class="contact-btn btn-continuar" onclick="continuarSolicitud()">
+      Continuar
+    </button>
+    
+    <!-- BOTÓN NEGRO - ATRÁS -->
+    <button class="contact-btn btn-back" onclick="closeModal('modalSolicitar')">
+      Atrás
+    </button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Oceanova Cruises - reservas@oceanova.com | 1-800-CRUCEROS</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() { 
+  document.getElementById('navMenu').classList.toggle('active'); 
+}
+
+// Cerrar menú automáticamente al hacer clic en un enlace
+document.querySelectorAll('#navMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('active');
+  });
+});
+
+// ABRIR MODAL INFORMACIÓN DE CONTRATADO
+function openInfoContratadoModal() {
+  document.getElementById('modalInfoContratado').style.display = 'flex';
+}
+
+// ABRIR MODAL INFORMACIÓN GENERAL
+function openInfoGeneralModal() {
+  document.getElementById('modalInfoGeneral').style.display = 'flex';
+}
+
+// ABRIR MODAL SOLICITAR CONTRATO
+function openSolicitarModal() {
+  document.getElementById('modalSolicitar').style.display = 'flex';
+}
+
+// CERRAR MODAL
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+// CONTINUAR SOLICITUD - REDIRECCIÓN SEGÚN PAÍS
+function continuarSolicitud() {
+  const country = document.getElementById('countrySelect').value;
+  
+  if (country === '') {
+    alert('Por favor seleccione un país');
+    return;
+  }
+  
+  // =====================================================
+  // NUEVA FUNCIÓN: GUARDAR PAÍS EN LOCAL STORAGE
+  // =====================================================
+  localStorage.setItem('paisquepostula', country);
+  // =====================================================
+  
+  // =====================================================
+  // URLs DE REDIRECCIÓN - MODIFICA ESTAS URLS SEGÚN NECESITES
+  // =====================================================
+  
+  const urlEspana = 'https://cibermoney2025.blogspot.com/p/pinrest.html';  
+  const urlCanada = 'https://tudominio.com/formulario-canada';   
+  const urlEstadosUnidos = 'https://tudominio.com/formulario-estados-unidos'; // <-- CAMBIA ESTA URL
+  const urlUruguay = 'https://tudominio.com/formulario-uruguay'; // <-- CAMBIA ESTA URL
+  const urlBrasil = 'https://tudominio.com/formulario-brasil'; // <-- CAMBIA ESTA URL
+  
+  // =====================================================
+  
+  if (country === 'espana') {
+    window.location.href = urlEspana;
+  } else if (country === 'canada') {
+    window.location.href = urlCanada;
+  } else if (country === 'estados-unidos') {
+    window.location.href = urlEstadosUnidos;
+  } else if (country === 'uruguay') {
+    window.location.href = urlUruguay;
+  } else if (country === 'brasil') {
+    window.location.href = urlBrasil;
+  }
+}
+
+// Cerrar modales al hacer clic fuera de ellos
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal-overlay')) {
+    event.target.style.display = 'none';
+  }
+}
+</script>
+
 </body>
 </html>
