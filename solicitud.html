@@ -4,9 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Oceanova Cruises - Solicitud de Empleo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/300.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/500.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/600.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/poppins@5.0.8/700.css" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 body { background: #f5f9fc; color: #222; overflow-x: hidden; }
@@ -167,6 +169,18 @@ nav a:hover { color: #4fc3f7; }
   background-color: #e74c3c;
   color: white;
 }
+.country-select option[value="estados-unidos"] {
+  background-color: #0033A0;
+  color: #FFD700;
+}
+.country-select option[value="uruguay"] {
+  background-color: #800080;
+  color: #FFFFFF;
+}
+.country-select option[value="brasil"] {
+  background-color: #009C3B;
+  color: #FFD700;
+}
 
 /* Botón morado - Continuar */
 .btn-continuar {
@@ -293,6 +307,9 @@ footer { background: #001a33; color: white; padding: 30px 6% 20px; }
       <option value="">-- Seleccione un país --</option>
       <option value="espana">España</option>
       <option value="canada">Canadá</option>
+      <option value="estados-unidos">Estados Unidos</option>
+      <option value="uruguay">Uruguay</option>
+      <option value="brasil">Brasil</option>
     </select>
     
     <!-- BOTÓN MORADO - CONTINUAR -->
@@ -358,8 +375,11 @@ function continuarSolicitud() {
   // URLs DE REDIRECCIÓN - MODIFICA ESTAS URLS SEGÚN NECESITES
   // =====================================================
   
-  const urlEspana = 'https://tudominio.com/formulario-espana';  // <-- CAMBIA ESTA URL POR LA DE ESPAÑA
-  const urlCanada = 'https://tudominio.com/formulario-canada';   // <-- CAMBIA ESTA URL POR LA DE CANADÁ
+  const urlEspana = 'https://tudominio.com/formulario-espana';  
+  const urlCanada = 'https://tudominio.com/formulario-canada';   
+  const urlEstadosUnidos = 'https://tudominio.com/formulario-estados-unidos'; // <-- CAMBIA ESTA URL
+  const urlUruguay = 'https://tudominio.com/formulario-uruguay'; // <-- CAMBIA ESTA URL
+  const urlBrasil = 'https://tudominio.com/formulario-brasil'; // <-- CAMBIA ESTA URL
   
   // =====================================================
   
@@ -367,6 +387,12 @@ function continuarSolicitud() {
     window.location.href = urlEspana;
   } else if (country === 'canada') {
     window.location.href = urlCanada;
+  } else if (country === 'estados-unidos') {
+    window.location.href = urlEstadosUnidos;
+  } else if (country === 'uruguay') {
+    window.location.href = urlUruguay;
+  } else if (country === 'brasil') {
+    window.location.href = urlBrasil;
   }
 }
 
@@ -380,3 +406,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
