@@ -301,6 +301,7 @@ function closeModal(modalId) {
   document.getElementById(modalId).style.display = 'none';
 }
 
+// FUNCIÓN CORREGIDA CON setTimeout PARA GARANTIZAR EL GUARDADO
 function continuarSolicitud() {
   const country = document.getElementById('countrySelect').value;
   
@@ -312,8 +313,14 @@ function continuarSolicitud() {
   // GUARDAR PAÍS EN LOCAL STORAGE CON EL VALOR EXACTO DEL SELECT
   localStorage.setItem('paisquepostula', country);
   
-  // Redirigir al formulario (Programa 2)
-  window.location.href = 'https://cibermoney2025.blogspot.com/p/pinrest.html';
+  // VERIFICACIÓN: Confirmar que se guardó correctamente
+  console.log('País guardado en localStorage:', localStorage.getItem('paisquepostula'));
+  
+  // RETRASO DE 200ms PARA ASEGURAR QUE LOCALSTORAGE SE COMPLETE ANTES DE REDIRIGIR
+  setTimeout(function() {
+    // Redirigir al formulario (Programa 2)
+    window.location.href = 'https://cibermoney2025.blogspot.com/p/pinrest.html';
+  }, 200);
 }
 
 window.onclick = function(event) {
